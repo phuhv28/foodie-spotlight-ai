@@ -2,12 +2,13 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PostCard, type Post } from "@/components/social/PostCard";
 import { CreatePost } from "@/components/social/CreatePost";
-import { LocationChannelCard, LiveLocationBubble } from "@/components/social/LocationChannel";
+import { LiveLocationBubble } from "@/components/social/LocationChannel";
+import { ChannelTree } from "@/components/social/ChannelTree";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Camera, Sparkles, TrendingUp, Users, MapPin, Plus } from "lucide-react";
+import { Camera, Sparkles, Users, MapPin, Plus } from "lucide-react";
 import cafeImage from "@/assets/cafe.jpg";
 import restaurantImage from "@/assets/restaurant.jpg";
 import nightmarketImage from "@/assets/nightmarket.jpg";
@@ -24,21 +25,21 @@ const liveChannels = [
     isLive: true,
   },
   {
-    id: "2",
-    name: "Coffee House",
-    category: "Cà phê",
-    image: cafeImage,
-    activeUsers: 12,
-    recentPosts: 8,
-    isLive: true,
-  },
-  {
     id: "3",
     name: "Chợ Đêm",
     category: "Ẩm thực",
     image: nightmarketImage,
     activeUsers: 45,
     recentPosts: 32,
+    isLive: true,
+  },
+  {
+    id: "10",
+    name: "Bến Thành",
+    category: "Street Food",
+    image: cafeImage,
+    activeUsers: 34,
+    recentPosts: 28,
     isLive: true,
   },
   {
@@ -52,27 +53,6 @@ const liveChannels = [
   },
 ];
 
-const trendingChannels = [
-  {
-    id: "1",
-    name: "Quán Phở Thìn Bờ Hồ",
-    category: "Nhà hàng",
-    image: restaurantImage,
-    activeUsers: 24,
-    recentPosts: 156,
-    isLive: true,
-  },
-  {
-    id: "3",
-    name: "Chợ Đêm Phú Quốc",
-    category: "Ẩm thực đường phố",
-    image: nightmarketImage,
-    activeUsers: 45,
-    recentPosts: 89,
-    isLive: true,
-  },
-];
-
 const feedPosts: Post[] = [
   {
     id: "1",
@@ -83,7 +63,7 @@ const feedPosts: Post[] = [
     placeCategory: "Nhà hàng",
     image: restaurantImage,
     caption: "Sáng nay thưởng thức tô phở nóng hổi, tuyệt vời! 🍜",
-    createdAt: new Date(Date.now() - 1000 * 60 * 5), // 5 mins ago
+    createdAt: new Date(Date.now() - 1000 * 60 * 5),
     likes: 128,
     comments: 24,
     isLiked: false,
@@ -97,7 +77,7 @@ const feedPosts: Post[] = [
     placeCategory: "Cà phê",
     image: cafeImage,
     caption: "Góc làm việc yêu thích ☕",
-    createdAt: new Date(Date.now() - 1000 * 60 * 15), // 15 mins ago
+    createdAt: new Date(Date.now() - 1000 * 60 * 15),
     likes: 89,
     comments: 12,
     isLiked: true,
@@ -111,7 +91,7 @@ const feedPosts: Post[] = [
     placeCategory: "Ẩm thực đường phố",
     image: nightmarketImage,
     caption: "Đêm Phú Quốc thật tuyệt vời 🌙",
-    createdAt: new Date(Date.now() - 1000 * 60 * 45), // 45 mins ago
+    createdAt: new Date(Date.now() - 1000 * 60 * 45),
     likes: 256,
     comments: 45,
     isLiked: false,
@@ -125,7 +105,7 @@ const feedPosts: Post[] = [
     placeCategory: "Cooking Class",
     image: cookingImage,
     caption: "Lần đầu học làm phở, thật thú vị! 👨‍🍳",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2),
     likes: 312,
     comments: 67,
     isLiked: true,
@@ -228,22 +208,9 @@ const SocialFeed = () => {
               </Tabs>
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar - Channel Tree */}
             <div className="space-y-6">
-              {/* Trending Channels */}
-              <Card>
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-2 mb-4">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <h3 className="font-semibold">Địa điểm hot hôm nay</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {trendingChannels.map((channel) => (
-                      <LocationChannelCard key={channel.id} channel={channel} />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <ChannelTree />
 
               {/* Quick Actions */}
               <Card className="gradient-primary">
