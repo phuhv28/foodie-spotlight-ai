@@ -6,8 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Star, MapPin, Clock, Phone, Globe, Heart, Share2, 
-  Calendar, Wifi, Car, CreditCard, Dog, Baby, Camera,
-  ChevronLeft, ChevronRight, MessageSquare, ThumbsUp
+  Wifi, Car, CreditCard, Dog, Baby, Camera,
+  ChevronLeft, ChevronRight, ThumbsUp
 } from "lucide-react";
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -294,23 +294,25 @@ const PlaceDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              {/* Booking Card */}
+              {/* Info Card */}
               <Card variant="elevated" className="sticky top-24">
                 <CardContent className="p-6 space-y-4">
                   <div className="text-center pb-4 border-b">
-                    <span className="text-sm text-muted-foreground">Giá từ</span>
+                    <span className="text-sm text-muted-foreground">Giá tham khảo</span>
                     <div className="text-2xl font-bold text-primary">{placeData.priceRange}</div>
                   </div>
-
-                  <Button size="lg" className="w-full">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Đặt bàn ngay
-                  </Button>
 
                   <Button variant="outline" size="lg" className="w-full">
                     <Phone className="w-4 h-4 mr-2" />
                     Gọi điện
                   </Button>
+
+                  <Link to={`/feed/${id}`} className="block">
+                    <Button size="lg" className="w-full">
+                      <Camera className="w-4 h-4 mr-2" />
+                      Xem khoảnh khắc
+                    </Button>
+                  </Link>
 
                   <div className="space-y-3 pt-4 border-t">
                     <div className="flex items-center gap-3">
