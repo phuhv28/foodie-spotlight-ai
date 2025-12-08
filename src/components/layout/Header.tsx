@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, MapPin, User, Bell, Menu, Heart, Sparkles, Camera } from "lucide-react";
+import { Search, MapPin, User, Bell, Menu, Heart, Sparkles, Camera, Wand2 } from "lucide-react";
 import { useState } from "react";
 
 export function Header() {
@@ -31,6 +31,12 @@ export function Header() {
 
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center gap-2">
+          <Button variant="ghost" size="sm" className="gap-1.5 text-primary font-semibold" asChild>
+            <Link to="/ai-recommend">
+              <Wand2 className="w-4 h-4" />
+              AI Gợi ý
+            </Link>
+          </Button>
           <Button variant="ghost" size="sm" asChild>
             <Link to="/feed">
               <Camera className="w-4 h-4 mr-1" />
@@ -86,6 +92,18 @@ export function Header() {
             />
           </div>
           <nav className="flex flex-col gap-2">
+            <Button variant="ghost" className="justify-start text-primary font-semibold" asChild>
+              <Link to="/ai-recommend">
+                <Wand2 className="w-4 h-4 mr-2" />
+                AI Gợi ý
+              </Link>
+            </Button>
+            <Button variant="ghost" className="justify-start" asChild>
+              <Link to="/feed">
+                <Camera className="w-4 h-4 mr-2" />
+                Khoảnh khắc
+              </Link>
+            </Button>
             <Button variant="ghost" className="justify-start" asChild>
               <Link to="/explore">
                 <Sparkles className="w-4 h-4 mr-2" />

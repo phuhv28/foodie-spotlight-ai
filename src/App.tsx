@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import SocialFeed from "./pages/SocialFeed";
 import LocationFeed from "./pages/LocationFeed";
+import AIRecommend from "./pages/AIRecommend";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/notifications" element={<Profile />} />
           <Route path="/feed" element={<SocialFeed />} />
           <Route path="/feed/:id" element={<LocationFeed />} />
+          <Route path="/ai-recommend" element={<AIRecommend />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
