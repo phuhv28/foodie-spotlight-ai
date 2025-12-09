@@ -1,14 +1,15 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   User, Settings, Heart, Star, MapPin, Camera, 
-  Edit, LogOut, Bell, Shield, ChevronRight, Calendar, MessageSquare
+  Edit, LogOut, Bell, Shield, ChevronRight, Users, MessageCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FriendsList } from "@/components/profile/FriendsList";
 import cafeImage from "@/assets/cafe.jpg";
 import restaurantImage from "@/assets/restaurant.jpg";
 
@@ -17,11 +18,12 @@ const userData = {
   email: "nguyenvana@gmail.com",
   phone: "0912 345 678",
   avatar: "",
+  bio: "Yêu ẩm thực Việt Nam 🍜 | Khám phá mọi nơi",
   joinDate: "Tháng 1, 2024",
   reviewCount: 15,
   favoriteCount: 28,
-  followersCount: 124,
-  followingCount: 89,
+  friendsCount: 156,
+  postsCount: 32,
 };
 
 const favoritesList = [
@@ -87,9 +89,18 @@ const Profile = () => {
               {/* Info */}
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-2xl font-bold mb-1">{userData.name}</h1>
-                <p className="text-muted-foreground mb-4">{userData.email}</p>
+                <p className="text-muted-foreground mb-2">{userData.bio}</p>
+                <p className="text-sm text-muted-foreground mb-4">{userData.email}</p>
 
                 <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm mb-4">
+                  <div className="text-center">
+                    <div className="font-bold text-lg">{userData.postsCount}</div>
+                    <div className="text-muted-foreground">Bài đăng</div>
+                  </div>
+                  <Link to="/profile/friends" className="text-center hover:text-primary transition-colors">
+                    <div className="font-bold text-lg">{userData.friendsCount}</div>
+                    <div className="text-muted-foreground">Bạn bè</div>
+                  </Link>
                   <div className="text-center">
                     <div className="font-bold text-lg">{userData.reviewCount}</div>
                     <div className="text-muted-foreground">Đánh giá</div>
@@ -97,14 +108,6 @@ const Profile = () => {
                   <div className="text-center">
                     <div className="font-bold text-lg">{userData.favoriteCount}</div>
                     <div className="text-muted-foreground">Yêu thích</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-bold text-lg">{userData.followersCount}</div>
-                    <div className="text-muted-foreground">Người theo dõi</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-bold text-lg">{userData.followingCount}</div>
-                    <div className="text-muted-foreground">Đang theo dõi</div>
                   </div>
                 </div>
 
@@ -187,9 +190,13 @@ const Profile = () => {
                     <Star className="w-4 h-4 mr-2" />
                     Đánh giá
                   </TabsTrigger>
-                  <TabsTrigger value="posts" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">
+                <TabsTrigger value="posts" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">
                     <Camera className="w-4 h-4 mr-2" />
                     Bài đăng
+                  </TabsTrigger>
+                  <TabsTrigger value="friends" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">
+                    <Users className="w-4 h-4 mr-2" />
+                    Bạn bè
                   </TabsTrigger>
                 </TabsList>
 
@@ -259,15 +266,39 @@ const Profile = () => {
                 </TabsContent>
 
                 <TabsContent value="posts" className="mt-0">
-                  <div className="text-center py-12 text-muted-foreground">
-                    <Camera className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                    <h3 className="font-medium mb-2">Chưa có bài đăng nào</h3>
-                    <p className="text-sm mb-4">Chia sẻ khoảnh khắc ẩm thực của bạn</p>
-                    <Button>
-                      <Camera className="w-4 h-4 mr-2" />
-                      Tạo bài đăng
-                    </Button>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {[restaurantImage, cafeImage].map((img, idx) => (
+                      <Link key={idx} to={`/feed/${idx + 1}`} className="group">
+                        <div className="aspect-square rounded-xl overflow-hidden relative">
+                          <img 
+                            src={img} 
+                            alt="Post" 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div className="flex items-center gap-4 text-primary-foreground">
+                              <span className="flex items-center gap-1">
+                                <Heart className="w-5 h-5 fill-current" />
+                                124
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <MessageCircle className="w-5 h-5" />
+                                18
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                    <div className="aspect-square rounded-xl border-2 border-dashed border-muted-foreground/30 flex flex-col items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors cursor-pointer">
+                      <Camera className="w-8 h-8 mb-2" />
+                      <span className="text-sm">Thêm bài đăng</span>
+                    </div>
                   </div>
+                </TabsContent>
+
+                <TabsContent value="friends" className="mt-0">
+                  <FriendsList />
                 </TabsContent>
               </Tabs>
             </div>
