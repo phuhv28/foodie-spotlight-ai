@@ -8,6 +8,7 @@ import Explore from "./pages/Explore";
 import PlaceDetail from "./pages/PlaceDetail";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
+import UserProfile from "./pages/UserProfile";
 import SocialFeed from "./pages/SocialFeed";
 import LocationFeed from "./pages/LocationFeed";
 import AIRecommend from "./pages/AIRecommend";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/place/:id" element={<PlaceDetail />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<UserProfile />} />
           <Route path="/favorites" element={<Profile />} />
           <Route path="/notifications" element={<Profile />} />
           <Route path="/feed" element={<SocialFeed />} />
