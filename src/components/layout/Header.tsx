@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, MapPin, User, Bell, Menu, Heart, Sparkles, Camera, Wand2 } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  User,
+  Bell,
+  Menu,
+  Heart,
+  Sparkles,
+  Camera,
+  Wand2,
+} from "lucide-react";
 import { useState } from "react";
 
 export function Header() {
@@ -15,15 +25,17 @@ export function Header() {
           <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center">
             <MapPin className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="hidden sm:inline text-gradient">VietFood</span>
+          <span className="hidden sm:inline text-gradient bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            GoHangOut
+          </span>
         </Link>
 
         {/* Search Bar - Desktop */}
         <div className="hidden md:flex flex-1 max-w-xl">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input 
-              placeholder="Tìm nhà hàng, quán ăn, cafe..." 
+            <Input
+              placeholder="Tìm nhà hàng, quán ăn, cafe..."
               className="pl-10 pr-4"
             />
           </div>
@@ -31,7 +43,12 @@ export function Header() {
 
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center gap-2">
-          <Button variant="ghost" size="sm" className="gap-1.5 text-primary font-semibold" asChild>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="gap-1.5 text-primary font-semibold"
+            asChild
+          >
             <Link to="/ai-recommend">
               <Wand2 className="w-4 h-4" />
               AI Gợi ý
@@ -71,9 +88,9 @@ export function Header() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -86,13 +103,14 @@ export function Header() {
         <div className="md:hidden border-t bg-card p-4 animate-fade-up">
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input 
-              placeholder="Tìm nhà hàng, quán ăn..." 
-              className="pl-10"
-            />
+            <Input placeholder="Tìm nhà hàng, quán ăn..." className="pl-10" />
           </div>
           <nav className="flex flex-col gap-2">
-            <Button variant="ghost" className="justify-start text-primary font-semibold" asChild>
+            <Button
+              variant="ghost"
+              className="justify-start text-primary font-semibold"
+              asChild
+            >
               <Link to="/ai-recommend">
                 <Wand2 className="w-4 h-4 mr-2" />
                 AI Gợi ý

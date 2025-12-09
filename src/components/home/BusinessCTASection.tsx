@@ -18,7 +18,8 @@ export function BusinessCTASection() {
                 Bạn là chủ nhà hàng?
               </h2>
               <p className="text-secondary-foreground/80 text-lg mb-6">
-                Đăng ký miễn phí để tiếp cận hàng trăm nghìn khách hàng tiềm năng, quản lý đặt bàn và tạo khuyến mãi thu hút.
+                Đăng ký miễn phí để tiếp cận hàng trăm nghìn khách hàng tiềm
+                năng, quản lý đặt bàn và tạo khuyến mãi thu hút.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -38,16 +39,24 @@ export function BusinessCTASection() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" variant="hero" className="bg-background text-secondary hover:bg-background/90" asChild>
+                <Button
+                  size="lg"
+                  variant="hero"
+                  className="bg-background text-secondary hover:bg-background/90"
+                  asChild
+                >
                   <Link to="/business/register">
                     Đăng ký ngay
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-background text-background hover:bg-background/10" asChild>
-                  <Link to="/business/dashboard">
-                    Tìm hiểu thêm
-                  </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-background text-background hover:bg-background/10"
+                  asChild
+                >
+                  <Link to="/business/dashboard">Tìm hiểu thêm</Link>
                 </Button>
               </div>
             </div>
@@ -55,23 +64,31 @@ export function BusinessCTASection() {
             {/* Stats Preview */}
             <div className="hidden lg:block">
               <Card className="bg-background/10 backdrop-blur border-background/20 p-6 text-secondary-foreground">
-                <h4 className="font-semibold mb-4">Hiệu quả từ VietFood</h4>
+                <h4 className="font-semibold mb-4">Hiệu quả từ GoHangOut</h4>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 rounded-lg bg-background/10">
                     <div className="text-3xl font-bold">+45%</div>
-                    <div className="text-sm text-secondary-foreground/70">Lượt đặt bàn</div>
+                    <div className="text-sm text-secondary-foreground/70">
+                      Lượt đặt bàn
+                    </div>
                   </div>
                   <div className="text-center p-4 rounded-lg bg-background/10">
                     <div className="text-3xl font-bold">+120%</div>
-                    <div className="text-sm text-secondary-foreground/70">Khách mới</div>
+                    <div className="text-sm text-secondary-foreground/70">
+                      Khách mới
+                    </div>
                   </div>
                   <div className="text-center p-4 rounded-lg bg-background/10">
                     <div className="text-3xl font-bold">15K</div>
-                    <div className="text-sm text-secondary-foreground/70">Lượt xem/tháng</div>
+                    <div className="text-sm text-secondary-foreground/70">
+                      Lượt xem/tháng
+                    </div>
                   </div>
                   <div className="text-center p-4 rounded-lg bg-background/10">
                     <div className="text-3xl font-bold">4.8★</div>
-                    <div className="text-sm text-secondary-foreground/70">Đánh giá TB</div>
+                    <div className="text-sm text-secondary-foreground/70">
+                      Đánh giá TB
+                    </div>
                   </div>
                 </div>
               </Card>

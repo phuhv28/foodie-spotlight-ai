@@ -22,12 +22,19 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-up">
             Khám phá ẩm thực <span className="text-primary">Việt Nam</span>
           </h1>
-          <p className="text-lg md:text-xl text-background/80 mb-8 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            Hàng nghìn địa điểm ăn uống, quán cà phê, nhà hàng được đánh giá và gợi ý bởi AI dựa trên sở thích của bạn.
+          <p
+            className="text-lg md:text-xl text-background/80 mb-8 animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Hàng nghìn địa điểm ăn uống, quán cà phê, nhà hàng được đánh giá và
+            gợi ý bởi AI dựa trên sở thích của bạn.
           </p>
 
           {/* Search Box */}
-          <div className="bg-card rounded-2xl p-2 shadow-elevated animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="bg-card rounded-2xl p-2 shadow-elevated animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="flex flex-col sm:flex-row gap-2">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -51,13 +58,21 @@ export function HeroSection() {
           </div>
 
           {/* AI Suggestion Button */}
-          <Button variant="secondary" size="lg" className="mt-6 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <Button
+            variant="secondary"
+            size="lg"
+            className="mt-6 animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
             <Sparkles className="w-5 h-5 mr-2" />
             Gợi ý bằng AI
           </Button>
 
           {/* Stats */}
-          <div className="flex gap-8 mt-10 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <div
+            className="flex gap-8 mt-10 animate-fade-up"
+            style={{ animationDelay: "0.4s" }}
+          >
             <div>
               <div className="text-3xl font-bold text-background">10K+</div>
               <div className="text-background/70 text-sm">Địa điểm</div>
