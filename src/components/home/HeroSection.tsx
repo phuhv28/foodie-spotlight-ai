@@ -20,14 +20,16 @@ export function HeroSection() {
       <div className="container relative z-10 py-20">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-up">
-            Khám phá ẩm thực <span className="text-primary">Việt Nam</span>
+            Khám phá ẩm thực, địa điểm vui chơi{" "}
+            <span className="text-primary">Việt Nam</span>
           </h1>
           <p
             className="text-lg md:text-xl text-background/80 mb-8 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Hàng nghìn địa điểm ăn uống, quán cà phê, nhà hàng được đánh giá và
-            gợi ý bởi AI dựa trên sở thích của bạn.
+            Hàng nghìn địa điểm ăn uống, quán cà phê, nhà hàng, địa điểm
+            check-in, vui chơi, giải trí được đánh giá và gợi ý bởi AI dựa trên
+            sở thích của bạn.
           </p>
 
           {/* Search Box */}
@@ -39,7 +41,7 @@ export function HeroSection() {
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
-                  placeholder="Bạn muốn ăn gì hôm nay?"
+                  placeholder="Bạn muốn đi đâu hôm nay?"
                   className="pl-10 border-0 bg-transparent h-12 text-base"
                 />
               </div>
