@@ -20,8 +20,8 @@ export function HeroSection() {
       <div className="container relative z-10 py-20">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-up">
-            Khám phá ẩm thực, địa điểm vui chơi{" "}
-            <span className="text-primary">Việt Nam</span>
+            Tìm điểm <span className="text-primary">check-in, chill </span>
+            cùng bạn bè?
           </h1>
           <p
             className="text-lg md:text-xl text-background/80 mb-8 animate-fade-up"
